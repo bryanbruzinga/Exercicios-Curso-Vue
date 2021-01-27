@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+<body>
+<!--
+  Utilizando a Api https://cloud.iexapis.com/stable/stock/goog/quote?token=pk_3c5b46971934405cbd9523a2e156136f com aapl e googl
+  Compare o marketCap entre ambas.
+  Mostre o CompanyName e MarketCap
+  Mude a cor para verde o nome da empresa com maior marketCap e vermelho com a menor
+-->
+<style>
+  .verde {
+    color: green;
+  }
+  .vermelho {
+    color: red;;
+  }
+</style>
+
+  <div id="app">
+    <p>Company Name : {{Apple.companyName}}</p>
+    <p :class="Apple.marketCap > Google.marketCap ? 'verde' : 'vermelho'">Market Cap: {{Apple.marketCap}}</p>
+    <p>Company Name : {{Google.companyName}}</p>
+    <p :class="Google.marketCap > Apple.marketCap ? 'verde' : 'vermelho'">Market Cap: {{Google.marketCap}}</p>
+  </div>
+  
+  <script>
+    const dadosApple = fetch('https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_3c5b46971934405cbd9523a2e156136f').then(r => r.json()).then(json => {
+      vm.Apple = json;
+    })
+    const dadosGoogle = fetch('https://cloud.iexapis.com/stable/stock/googl/quote?token=pk_3c5b46971934405cbd9523a2e156136f').then(r => r.json()).then(json => {
+      vm.Google = json;
+    })
+
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        Apple: {},
+        Google: {},
+      },
+      methods: {
+
+      }
+    })
+    
+  </script>
+
+</body>
+</html>

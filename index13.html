@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+<!--
+Crie um criador de botões
+O usuário poderá definir:
+width,
+height,
+font-size,
+font-family,
+text-align,
+background,
+color,
+border-radius,
+As escolhas serão feitas em campos de formulário. Cada escolha deverá ser refletida em um elemento (o botão).
+-->
+
+  <div id="app">
+    <form action="">
+      <label for="width">Width</label>
+      <input type="text" name="width" id="width" v-model="btn.width">
+
+      <label for="height">Height</label>
+      <input type="text" name="height" id="height" v-model="btn.height">
+
+      <label for="fontSize">Font-Size</label>
+      <input type="text" name="fontSize" id="fontSize" v-model="btn.fontSize">
+
+      <label for="fontFamily">Font-Family</label>
+      <input type="text" name="fontFamily" id="fontFamily" v-model="btn.fontFamily">
+
+      <label for="textAlign">Text-Align</label>
+      <input type="text" name="textAlign" id="textAlign" v-model="btn.textAlign">
+
+      <label for="background">Background</label>
+      <input type="color" name="background" id="background" v-model="btn.background">
+
+      <label for="color">Color</label>
+      <input type="color" name="color" id="color" v-model="btn.color">
+
+      <label for="borderRadius">Border-Radius</label>
+      <input type="text" name="borderRadius" id="borderRadius" v-model="btn.borderRadius">
+    </form>
+    <button :style="btn">Me Estilize</button>
+  </div>
+  
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        btn: {
+          width: '',
+          height: '',
+          fontSize: '',
+          fontFamily: '',
+          textAlign: '',
+          background: '',
+          color: '',
+          borderRadius: ''
+        }
+      }
+    })   
+
+  </script>
+
+  <style>
+    label{
+      display: block;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      padding: 5px;
+      margin: 5px;
+      width: 200px;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+  </style>
+
+</body>
+</html>

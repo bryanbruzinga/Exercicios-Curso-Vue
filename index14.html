@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+<!--
+Crie um formulário com nome, email, telefone e mensagem. Ao clicar em enviar, as informações preenchidas no formulário devem aparecer abaixo o mesmo. (preventDefault antes)
+-->
+
+  <div id="app">
+    <form action="">
+      <label for="nome">Nome:</label>
+      <input type="text" name="nome" id="nome" v-model="dados.nome">
+
+      <label for="email">E-mail:</label>
+      <input type="email" name="email" id="email" v-model="dados.email">
+
+      <label for="fone">Telefone:</label>
+      <input type="number" name="fone" id="fone" v-model="dados.fone">
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea name="mensagem" id="mensagem" cols="30" rows="10" v-model="dados.mensagem"></textarea><br>
+      <button @click.prevent="enviar">Enviar</button>
+      <ul>
+        <li v-if="show === true" v-for="(dado, key) in dados">{{key}}: {{dado}}</li>
+      </ul>
+    </form>
+    
+  </div>
+  
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        show: false,
+        dados: {
+          nome: '',
+          email: '',
+          fone: '',
+          mensagem: ''
+        }
+      },
+      methods: {
+        enviar() {
+          this.show = true
+        }
+      }
+    })   
+
+  </script>
+
+  <style>
+    label{
+      display: block;
+    }
+    li {
+      list-style: none;
+    }
+  </style>
+
+</body>
+</html>

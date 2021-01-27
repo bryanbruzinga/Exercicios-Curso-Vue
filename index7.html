@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+<body>
+  <!--
+    https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_3c5b46971934405cbd9523a2e156136f
+    Utilizando a API
+    Adicione um evento de clique a cada <a> do html acima e previna o comportamento padrão
+      Faça o fetch dos dados do href ao click e mostre na interface o companyName, latestPrice, marketCap
+  -->
+
+  <div id="app">
+    <ul>
+      <li><a @click.prevent="mostrar" href="https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_3c5b46971934405cbd9523a2e156136f">Apple</a></li>
+      <li><a @click.prevent="mostrar" href="https://cloud.iexapis.com/stable/stock/googl/quote?token=pk_3c5b46971934405cbd9523a2e156136f">Google</a></li>
+      <li><a @click.prevent="mostrar" href="https://cloud.iexapis.com/stable/stock/amzn/quote?token=pk_3c5b46971934405cbd9523a2e156136f">Amazon</a></li>
+      <li><a @click.prevent="mostrar" href="https://cloud.iexapis.com/stable/stock/ebay/quote?token=pk_3c5b46971934405cbd9523a2e156136f">Ebay</a></li>
+      <li><a @click.prevent="mostrar" href="https://cloud.iexapis.com/stable/stock/pypl/quote?token=pk_3c5b46971934405cbd9523a2e156136f">Paypal</a></li>
+      <p>Company Name: {{acoes.companyName}}</p>
+      <p>Latest Price: {{acoes.latestPrice}}</p>
+      <p>Market Cap: {{acoes.marketCap}}</p>
+    </ul>
+
+  </div>
+  
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        acoes: {},
+      },
+      methods: {
+        mostrar() {
+          fetch(event.currentTarget).then(r => r.json()).then(json => {
+            this.acoes = json
+          })
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
