@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+<!--
+Utilize a Api do Github para mostrar todos os seus dados na tela. Faça o fetch das informações utilizando um dos hooks do vue
+
+Crie um contador, onde seja possível clicar em um botão e adicionar +1 ao número
+
+Toda vez que o contador mudar, mude o título da página para o total do contador. Utilize um hook para isso
+https://api.github.com/users/bryanbruzinga
+-->
+
+  <div id="app">
+    <div>
+      <ul>
+        <li v-for="(valor, chave) in github">{{chave}}: {{valor}}</li>
+      </ul>
+    </div>
+    <div>
+      <p>Contador</p>
+      <button @click="contador++">Adicione 1</button>
+      <p>{{contador}}</p>
+    </div>
+  </div>
+  
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        github: {},
+        contador: 0,
+        },
+      methods: {
+        puxarGithub() {
+          fetch('https://api.github.com/users/bryanbruzinga')
+          .then(r => r.json())
+          .then(json => {
+            this.github = json;
+          })
+        },
+        mudarTitle() {
+          document.title = this.contador;
+        }
+        },
+        created() {
+          this.puxarGithub();
+        },
+        updated() {
+          this.mudarTitle();
+        }
+    }) 
+
+  </script>
+
+</body>
+</html>
