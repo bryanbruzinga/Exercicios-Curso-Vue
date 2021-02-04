@@ -11,9 +11,9 @@ export default {
         }
     }, 
     template: `<div>
-    <p>Valor da Apple: {{valorMercado}}</p>
-    <valor-dolar></valor-dolar>
-    </div>`,
+                    <p>Valor da Apple: {{valorMercado}}</p>
+                    <valor-dolar></valor-dolar>
+                </div>`,
     methods: {
         puxarAcao() {
             fetch('https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_3c5b46971934405cbd9523a2e156136f')

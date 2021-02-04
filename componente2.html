@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+<!--
+  Crie um componente com um campo de input e um botão para enviar o valor.
+  Nesse campo de input será possível escrever o símbolo de empresas americanas
+
+  simbolos ex:
+  aapl -> Apple
+  goog -> Google
+  msft -> Microsoft
+  amzn -> Amazon
+  fb -> Facebook
+
+  Ao clicar no botão, faça um fetch com a API
+https://cloud.iexapis.com/stable/stock/${SIMBOLO}/quote?token=pk_3c5b46971934405cbd9523a2e156136f
+
+O resultado do fetch deverá ser mostrado em um componente filho do formulário
+Envia as informações utilizando prop
+Mostre todas as informações do fetch utilizando um loop
+-->
+
+  <div id="app">
+    <p><dados-empresa></dados-empresa></p>
+  </div>
+  
+  <script type="module">
+
+    import DadosEmpresa from './componente2/dadosEmpresas.js';
+
+    const vm = new Vue({
+      el: '#app',
+      components: {
+        DadosEmpresa
+      }
+    }) 
+
+  </script>
+
+</body>
+</html>
