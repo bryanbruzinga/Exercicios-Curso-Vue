@@ -1,10 +1,19 @@
 <template>
-  <h1>Essa é a página Cursos</h1>
+  <div>
+    <h1>Curso ativo: {{curso}}</h1>
+    <router-link to='/cursos/javascript'>Javascript</router-link>
+    <router-link to='/cursos/html'>HTML</router-link>
+    <router-link to='/cursos/css'>CSS</router-link>
+  </div>
 </template>
 
 <script>
 export default {
-
+  computed: {
+    curso() {
+      return this.$route.params.curso
+    }
+  }
 }
 </script>
 

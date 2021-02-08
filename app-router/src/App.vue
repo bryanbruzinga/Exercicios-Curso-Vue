@@ -18,9 +18,25 @@ export default {
 
 <style>
 #app {
+  font-family: 'Avenir', Helvetica;
   text-align: center;
+  margin-top: 60px;
+  color: #234;
+  border: 4px solid;
+  margin: 20px;
+  padding: 20px;
+}
+
+nav {
+  padding: 20px 0;
 }
 a {
   padding: 10px;
+  color: #234;
+}
+
+.router-link-exact-active {
+  color: #4b8;
+  font-weight: bold;
 }
 </style>
