@@ -1,6 +1,6 @@
 <template>
   <div>
-   <h1>Home</h1>
+   <h1>Contato</h1>
   </div>
 </template>
 
@@ -8,6 +8,6 @@
 
 
 export default {
-  name: 'home'
+  name: 'contato'
 };
 </script>
