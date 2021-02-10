@@ -1,4 +1,4 @@
-# techno-cursos
+# aulavuex
 
 ## Project setup
 ```

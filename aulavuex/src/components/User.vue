@@ -1,13 +1,15 @@
 <template>
   <div>
-   <h1>Contato</h1>
+      User
   </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'contato'
-};
+
+}
 </script>
+
+<style>
+
+</style>
