@@ -4,8 +4,12 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        user: "Lobo",
-        aulasCompletas: 10
+  state: {
+    aulasCompletas: []
+  },
+  mutations: {
+    COMPLETAR_AULA(state, payload) {
+        state.aulasCompletas.push(payload)
     }
+  }
 })

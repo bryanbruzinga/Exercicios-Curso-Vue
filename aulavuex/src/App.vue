@@ -1,22 +1,21 @@
 <template>
   <div id="app">
-    {{$store.state.user}}
-    <User />
-    <Curso />
+    <Aluno />
+    <Cursos />
   </div>
 </template>
 
 <script>
 
-import User from './components/User.vue'
-import Curso from './components/Curso.vue'
+import Aluno from './components/Aluno.vue'
+import Cursos from './components/Cursos.vue'
 
 
 export default {
   name: 'App',
   components: {
-    User,
-    Curso
+    Aluno,
+    Cursos
   }
 }
 </script>

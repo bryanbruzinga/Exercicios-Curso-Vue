@@ -1,19 +1,18 @@
 <template>
   <div>
-      <p>Curso</p>
-      <Aula />
+      <p>Curso de Javascript</p>
+      <Aulas />
   </div>
 </template>
 
 <script>
-import Aula from '@/components/Aula.vue';
+import Aulas from '@/components/Aulas.vue';
 
 export default {
     name: "Curso",
     components: {
-        Aula
+        Aulas
     }
-
 }
 </script>
 
